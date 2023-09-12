@@ -3,8 +3,11 @@ import { Container, Row, Col } from 'react-bootstrap';
 import Algebra_Avatar from '../assets/images/Algebra.png';
 import Geometry_Avatar from '../assets/images/Geometry.png';
 import Operations_Avatar from '../assets/images/Operations.png';
+import Measurement_Avatar from '../assets/images/Measurement.png';
+import Statistics_Avatar from '../assets/images/Probability and Statistics.png';
+import Number_Avatar from '../assets/images/Number Sense.png';
 
-const OpenCloseWindow = () => {
+const MainScreen = () => {
     // let openedWindow = null;
 
     const [selectedRoom, setSelectedRoom] = useState('');
@@ -45,6 +48,9 @@ const OpenCloseWindow = () => {
         { name: 'Algebra', pictureUrl: Algebra_Avatar, roomUrl: 'https://thanhit1990.github.io/vr-demo/' },
         { name: 'Geometry', pictureUrl: Geometry_Avatar, roomUrl: 'https://thanhit1990.github.io/vr-demo/' },
         { name: 'Operations', pictureUrl: Operations_Avatar, roomUrl: 'https://thanhit1990.github.io/vr-demo/' },
+        { name: 'Measurement', pictureUrl: Measurement_Avatar, roomUrl: 'https://thanhit1990.github.io/vr-demo/' },
+        { name: 'Number Sense', pictureUrl: Number_Avatar, roomUrl: 'https://thanhit1990.github.io/vr-demo/' },
+        { name: 'Probability and Statistics', pictureUrl: Statistics_Avatar, roomUrl: 'https://thanhit1990.github.io/vr-demo/' },
         // Add more rooms with their respective picture URLs
     ];
 
@@ -89,14 +95,15 @@ const OpenCloseWindow = () => {
         <Container>
             <Row>
                 {rooms.map((room, index) => (
-                    <Col key={index} xs={6} md={4} lg={3}>
+                    <Col key={index} xs={12} md={6} lg={4} className="mb-4">
                         <img
                             src={room.pictureUrl}
                             alt={room.name}
                             onClick={() => handleRoomClick(room.roomUrl)}
+                            className="img-fluid shadow"
                             style={{ cursor: 'pointer', width: '150px', height: '150px' }}
                         />
-                        <p>{room.name}</p>
+                        <p style={{ fontSize: '20px', fontWeight: 'bold', fontFamily: 'Arial, sans-serif', marginTop: '10px', marginBottom: '10px' }}>{room.name}</p>
                     </Col>
                 ))}
             </Row>
@@ -104,4 +111,4 @@ const OpenCloseWindow = () => {
     );
 };
 
-export default OpenCloseWindow;
+export default MainScreen;
